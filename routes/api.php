@@ -153,7 +153,7 @@ Route::middleware('jwt.auth')->namespace('API')->name('api.')->group(function ()
 });
 
 
-Route::namespace('API')->name('api.')->group(function () {
+Route::namespace('api')->name('api.')->group(function () {
     //Login
     Route::prefix('autenticacao')->group(function () {
         Route::post('/login', 'AuthenticateController@login')->name('login');
