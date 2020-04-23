@@ -21,7 +21,7 @@ Route::get('/ok', function () {
     return ['status' => true];
 });
 
-Route::middleware('jwt.auth')->namespace('API')->name('api.')->group(function () {
+Route::middleware('jwt.auth')->namespace('Api')->name('api.')->group(function () {
 
 
 
