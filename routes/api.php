@@ -32,6 +32,30 @@ Route::middleware('jwt.auth')->namespace('API')->name('api.')->group(function ()
         Route::get('/cooperadosNome', 'CooperadoController@cooperadosNome')->name('index_cooperado');
     });
 
+    Route::prefix('tanque')->group(function () {
+        //Lista os tanques
+        Route::get('/', 'TanqueController@index')->name('index_tanque');
+        //Lista os tanques correspondentes aos parametros
+        Route::post('/RelatorioQualidade', 'TanqueController@GerarRelatorio')->name('tanque_cbt');
+        //Lista os tanques com cbt acima de 300 all
+        Route::get('/relatorioExcluir', 'TanqueController@ListagemQualidadeExcluir')->name('tanque_cbt');
+        //Gera arquivo excel com todos os cooperados dentro dos parametros do request
+        Route::post('/todos', 'TanqueController@ListagemQualidadeGerar')->name('tanque_cbt');
+        //retorna arquivo excel gerado na "ListagemQualidadeGerar"
+        Route::get('/todosExcel', 'TanqueController@ListagemQualidadeEnviar')->name('tanque_cbt');
+        //Lista os tanques com ccs acima de 500
+        Route::get('/CcsAcimaDe500/{dataReferencia}', 'TanqueController@TanquesCcsAcimaDe500')->name('tanque_ccs');
+        //Lista os latões e seu respectivo cooperado
+        Route::get('/LataoPorCooperado', 'TanqueController@LataoPorCooperado')->name('LataoPorCooperado');
+        Route::get('/export/{relatorio}/{filtro}/{padrao}/{dataReferencia}', 'TanqueController@ListagemQualidade');
+        //TanqueResource Por id
+        Route::post('/tanquePorId', 'TanqueController@TanqueResourcePorID')->name('tanque_resource');
+        //TanqueResource 
+        Route::get('/tanqueAll', 'TanqueController@TanqueResourceAll')->name('tanque_resourceAll');
+
+        
+    });
+
 
 
     Route::prefix('qualidade')->group(function () {
@@ -138,31 +162,6 @@ Route::namespace('API')->name('api.')->group(function () {
     //inserir um técnico
     Route::prefix('tecnico')->group(function () {
         Route::post('/', 'tecnicoController@store')->name('novo_tecnico');
-    });
-
-
-    Route::prefix('tanque')->group(function () {
-        //Lista os tanques
-        Route::get('/', 'TanqueController@index')->name('index_tanque');
-        //Lista os tanques correspondentes aos parametros
-        Route::post('/RelatorioQualidade', 'TanqueController@GerarRelatorio')->name('tanque_cbt');
-        //Lista os tanques com cbt acima de 300 all
-        Route::get('/relatorioExcluir', 'TanqueController@ListagemQualidadeExcluir')->name('tanque_cbt');
-        //Gera arquivo excel com todos os cooperados dentro dos parametros do request
-        Route::post('/todos', 'TanqueController@ListagemQualidadeGerar')->name('tanque_cbt');
-        //retorna arquivo excel gerado na "ListagemQualidadeGerar"
-        Route::get('/todosExcel', 'TanqueController@ListagemQualidadeEnviar')->name('tanque_cbt');
-        //Lista os tanques com ccs acima de 500
-        Route::get('/CcsAcimaDe500/{dataReferencia}', 'TanqueController@TanquesCcsAcimaDe500')->name('tanque_ccs');
-        //Lista os latões e seu respectivo cooperado
-        Route::get('/LataoPorCooperado', 'TanqueController@LataoPorCooperado')->name('LataoPorCooperado');
-        Route::get('/export/{relatorio}/{filtro}/{padrao}/{dataReferencia}', 'TanqueController@ListagemQualidade');
-        //TanqueResource Por id
-        Route::post('/tanquePorId', 'TanqueController@TanqueResourcePorID')->name('tanque_resource');
-        //TanqueResource 
-        Route::get('/tanqueAll', 'TanqueController@TanqueResourceAll')->name('tanque_resourceAll');
-
-        
     });
 
     
