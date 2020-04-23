@@ -41,7 +41,12 @@ class QualidadeController extends Controller
 
         $qualidades  = [];
 
-        return QualidadeResource::collection($this->qualidade->where('zle_dtfim', '=', $data[0]->data)->get());
+        if ($data[0]->data) {
+            return QualidadeResource::collection($this->qualidade->where('zle_dtfim', '=', $data[0]->data)->get());
+        } else {
+            return  $qualidades;
+        }
+        
         //return $this->qualidade->where('zle_dtfim', '=', $data[0]->data)->get();
 
     }
