@@ -47,19 +47,38 @@ class Submissao extends Model
         return $this->hasOne(Tecnico::class, 'id', 'tecnico_id');
     }
 
-    //retorna a ultima qualidade de cada tanque
+    //retorna a ultima submissao de cada tanque, para realizar a comparação com a submissao atuaç
     public function SubmissaoLast() 
     {
 
         $ultimaData = DB::table('submissao')
-            ->select(DB::raw('MAX(DataSubmissao) as DataSubmissao'),DB::raw('MAX(aproveitamento) as aproveitamento'), 'tanque_id as tanque')
+            ->select(DB::raw('MAX(DataSubmissao) as DataSubmissao'), 'tanque_id as tanque', 'aproveitamento')
             ->where('realizada', '=', '1')
-            ->groupBy('tanque_id')
+            ->groupBy('tanque_id', 'aproveitamento')
+            ->orderBy('DataSubmissao', 'desc')
             ->get();
 
         return $ultimaData;
     }
 
+     //retorna a ultima submissao de um tanque, para realizar a comparação com a submissao atuaç
+     public function SubmissaoLastPorID($id_sub, $id_tanque) 
+     {
+ 
+         $ultimaData = DB::table('submissao')
+             ->select(DB::raw('MAX(DataSubmissao) as DataSubmissao'), 'tanque_id as tanque', 'aproveitamento') //DB::raw('MAX(aproveitamento) as aproveitamento'),
+             ->where('realizada', '=', '1')
+             ->where('id', '<>', $id_sub)
+             ->where('tanque_id', '=', $id_tanque)
+             ->groupBy('tanque_id', 'aproveitamento')
+             ->orderBy('DataSubmissao', 'desc')
+             ->take(1)
+             ->get();
+ 
+         return $ultimaData;
+     }
+
+    
 
 
     protected $table = 'submissao';

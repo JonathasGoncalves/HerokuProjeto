@@ -25,6 +25,7 @@ class Qualidade extends Model
             ->select('qualidade-leite.id')
             ->join('tanques', 'tanques.tanque', '=', 'qualidade-leite.tanque')
             ->where('tanques.codigo_cacal', '=', $cod_cooperado)
+            //->where('qualidade-leite.zle_dtfim', '=', $data)
             ->orderBy('qualidade-leite.zle_dtfim', 'desc')
             ->first();
 
@@ -41,5 +42,7 @@ class Qualidade extends Model
 
         return $ultimaData;
     }
+
+    
 
 }

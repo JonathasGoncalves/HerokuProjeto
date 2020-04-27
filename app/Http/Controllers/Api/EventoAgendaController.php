@@ -64,4 +64,22 @@ class EventoAgendaController extends Controller
             return response()->json(ApiError::errorMassage('Error ao inserir o evento', 1010));
         }
     }
+
+
+    public function atualizarEvento (Request $request) {
+        $evento = $this->EventoAgenda->find($request->input('evento_id'));
+        $evento->hora = $request->input('hora');
+        $evento->data = $request->input('data');
+        $evento->tecnico_id = $request->input('tecnico_id');
+        $evento->fomulario_id = $request->input('fomulario_id');
+        $evento->save();
+    }
+
+    public function excluirEvento (Request $request) {
+        $evento = $this->EventoAgenda->find($request->input('evento_id'));
+        
+        $evento->delete();
+    }
+
+
 }

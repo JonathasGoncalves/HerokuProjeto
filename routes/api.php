@@ -142,6 +142,10 @@ Route::middleware('jwt.auth')->namespace('Api')->name('api.')->group(function ()
         Route::post('/NovoEvento', 'EventoAgendaController@store')->name('store');
         //lista todos os eventos
         Route::post('/EventosPorDia', 'EventoAgendaController@eventosPorDia')->name('index');
+        //alterar evento
+        Route::post('/updateEvento', 'EventoAgendaController@atualizarEvento')->name('update');
+        //alterar evento
+        Route::post('/deleteEvento', 'EventoAgendaController@excluirEvento')->name('delete');
     });
 
     //Login

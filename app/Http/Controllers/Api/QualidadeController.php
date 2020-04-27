@@ -39,14 +39,8 @@ class QualidadeController extends Controller
         
         $data =  $this->qualidade->QualidadeLast();
 
-        $qualidades  = [];
-
-        if ($data[0]->data) {
-            return QualidadeResource::collection($this->qualidade->where('zle_dtfim', '=', $data[0]->data)->get());
-        } else {
-            return  $qualidades;
-        }
-        
+        return QualidadeResource::collection($this->qualidade->where('zle_dtfim', '=', $data[0]->data)->get());
+        //return $this->qualidade->where('zle_dtfim', '=', $data[0]->data)->get();
         //return $this->qualidade->where('zle_dtfim', '=', $data[0]->data)->get();
 
     }

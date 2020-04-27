@@ -89,7 +89,7 @@ class SubmissaoController extends Controller
             /**se não possui registro de qualidade, esta será inserido como null */
             if (!$ultima_qualidade) {
                 $nova_submissao = [
-                    'DataSubmissao' => date("y/m/d"),
+                    'DataSubmissao' => $request->input('DataSubmissao'),
                     'qualidade_id' => null,
                     'tanque_id' => $tanque->id,
                     'realizada' => 0,
@@ -98,7 +98,7 @@ class SubmissaoController extends Controller
                 ];
             } else {
                 $nova_submissao = [
-                    'DataSubmissao' => date("y/m/d"),
+                    'DataSubmissao' => $request->input('DataSubmissao'),
                     'qualidade_id' => $ultima_qualidade->id,
                     'tanque_id' => $tanque->id,
                     'realizada' => 0,
@@ -160,7 +160,9 @@ class SubmissaoController extends Controller
         $submissaFind = $this->submissao->find($request->input('id_submissao'));
         $submissaFind->realizada = 1;
         $submissaFind->aproveitamento = $request->input('aproveitamento');
+        $submissaFind->DataSubmissao = $request->input('DataSubmissao');
         $submissaFind->save();
+        return $this->submissao->find($request->input('id_submissao'));
 
     }
 
@@ -330,8 +332,15 @@ class SubmissaoController extends Controller
     }
 
     public function UltimaSubmissao(Request $request) {
+
+        $sub = $this->submissao->SubmissaoLastPorID($request->input('submissao_id'), $request->input('tanque_id'));
         
-        return Submissao::where('tanque_id', $request->input('id_tanque'))->where('realizada', '=', '1')->orderBy('DataSubmissao', 'desc')->first();
+        if ($sub) {
+            return response()->json($sub[0]); 
+        } else {
+            return response()->json(ApiError::errorMassage(['data' => ['msg' => 'Nunhuma submissão encontrada']], 4040), 404);
+        }
+        
     }
 
     /**

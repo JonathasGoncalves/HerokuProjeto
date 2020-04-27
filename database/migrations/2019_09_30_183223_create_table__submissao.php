@@ -15,7 +15,7 @@ class CreateTableSubmissao extends Migration
     {
         Schema::create('submissao', function (Blueprint $table) {
             $table->increments('id');
-            $table->date('DataSubmissao');
+            $table->dateTime('DataSubmissao');
             $table->integer('qualidade_id')->nullable();
             $table->integer('tanque_id');
             $table->integer('realizada');
