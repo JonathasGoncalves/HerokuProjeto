@@ -94,7 +94,7 @@ class SubmissaoController extends Controller
                     'tanque_id' => $tanque->id,
                     'realizada' => 0,
                     'tecnico_id' => $tecnico->id,
-                    'aproveitamento' => 0      
+                    'aproveitamento' => 0
                 ];
             } else {
                 $nova_submissao = [
@@ -103,11 +103,11 @@ class SubmissaoController extends Controller
                     'tanque_id' => $tanque->id,
                     'realizada' => 0,
                     'tecnico_id' => $tecnico->id,
-                    'aproveitamento' => 0 
+                    'aproveitamento' => 0
                 ];
             }
 
-          
+
 
             /**Criando a submissão e associando seus itens (OpcaoResposta) */
             //
@@ -155,15 +155,14 @@ class SubmissaoController extends Controller
     public function MarcarRealizada(Request $request)
     {
 
-        
-        
+
+
         $submissaFind = $this->submissao->find($request->input('id_submissao'));
         $submissaFind->realizada = 1;
         $submissaFind->aproveitamento = $request->input('aproveitamento');
         $submissaFind->DataSubmissao = $request->input('DataSubmissao');
         $submissaFind->save();
-        return $this->submissao->find($request->input('id_submissao'));
-
+        return new SubmissaoResource($this->submissao->find($request->input('id_submissao')));
     }
 
     /**
@@ -249,7 +248,7 @@ class SubmissaoController extends Controller
             return response()->json(ApiError::errorMassage(['data' => ['msg' => 'Valor de resposta inválido']], 4422), 422);
         }
 
-
+        if ($submissao_find->realizada == 1)  return response()->json(ApiError::errorMassage(['data' => ['msg' => 'Esta submissão já foi realizada!']], 4090), 409);
         try {
 
             /**Criando a submissão e associando seus itens (OpcaoResposta) */
@@ -325,22 +324,22 @@ class SubmissaoController extends Controller
 
 
             //exclui submissao
-            $submissao_del = Submissao::destroy($submissao_id);
+            //Submissao::destroy($submissao_id);
         }
 
         return response()->json(['msg' => 'Submissao excluida com sucesso!'], 201);
     }
 
-    public function UltimaSubmissao(Request $request) {
+    public function UltimaSubmissao(Request $request)
+    {
 
         $sub = $this->submissao->SubmissaoLastPorID($request->input('submissao_id'), $request->input('tanque_id'));
-        
+
         if ($sub) {
-            return response()->json($sub[0]); 
+            return response()->json($sub[0]);
         } else {
             return response()->json(ApiError::errorMassage(['data' => ['msg' => 'Nunhuma submissão encontrada']], 4040), 404);
         }
-        
     }
 
     /**
@@ -348,8 +347,8 @@ class SubmissaoController extends Controller
      */
     public function SubmissaoLast(Request $request)
     {
-        
-        return $data =  $this->submissao->SubmissaoLast();
+
+        return $this->submissao->SubmissaoLast();
 
         //return 'teste';
 
@@ -357,8 +356,4 @@ class SubmissaoController extends Controller
         //return $this->qualidade->where('zle_dtfim', '=', $data[0]->data)->get();
 
     }
-
-
-    
-
 }

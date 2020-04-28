@@ -1147,18 +1147,18 @@ VALUES ("Higiene");
 
 
 
-INSERT INTO pergunta (enunciado, formulario_id, tema_id)
+INSERT INTO pergunta (enunciado, formulario_id, tema_id) 1
 VALUES ("Condição tetos antes da ordenha:", 1, 4);
 INSERT INTO pergunta (enunciado, formulario_id, tema_id)
 VALUES ( "O teste da caneca é feito?", 1, 1);
 INSERT INTO pergunta (enunciado, formulario_id, tema_id)
-VALUES ( "Quantidade de bois reprodutores:", 2, 2);
+VALUES ( "Utiliza boi reprodutor", 2, 2);
 INSERT INTO pergunta (enunciado, formulario_id, tema_id)
 VALUES ("Realiza inseminação?", 2, 2);
 INSERT INTO pergunta (enunciado, formulario_id, tema_id)
 VALUES ("Realiza inseminação?", 1, 2);
-INSERT INTO pergunta (enunciado, formulario_id, tema_id)
-VALUES ( "Quantidade de bois reprodutores:", 1, 2);
+INSERT INTO pergunta (enunciado, formulario_id, tema_id) 6
+VALUES ( "Utiliza boi reprodutor", 1, 2);
 
 INSERT INTO opcao ( nome_opcao)
 VALUES ( "Limpos");
@@ -1177,26 +1177,33 @@ INSERT INTO opcaopergunta ( opcao_id, pergunta_id, positiva)
 VALUES ( 2, 1, 0);
 INSERT INTO opcaopergunta ( opcao_id, pergunta_id, positiva)
 VALUES ( 3, 1, 0);
+
 INSERT INTO opcaopergunta ( opcao_id, pergunta_id, positiva)
 VALUES ( 4, 2, 1);
 INSERT INTO opcaopergunta ( opcao_id, pergunta_id, positiva)
+VALUES ( 5, 2, 0);
+
+INSERT INTO opcaopergunta ( opcao_id, pergunta_id, positiva)
+VALUES ( 4, 3, 1);
+INSERT INTO opcaopergunta ( opcao_id, pergunta_id, positiva)
+VALUES ( 5, 3, 0);
+
+INSERT INTO opcaopergunta ( opcao_id, pergunta_id, positiva)
 VALUES ( 4, 4, 0);
 INSERT INTO opcaopergunta ( opcao_id, pergunta_id, positiva)
-VALUES ( 5, 2, 0);
-INSERT INTO opcaopergunta ( opcao_id, pergunta_id, positiva)
 VALUES ( 5, 4, 1);
+
 INSERT INTO opcaopergunta ( opcao_id, pergunta_id, positiva)
 VALUES ( 5, 5, 0);
 INSERT INTO opcaopergunta ( opcao_id, pergunta_id, positiva)
 VALUES ( 4, 5, 1);
+
 INSERT INTO opcaopergunta ( opcao_id, pergunta_id, positiva)
 VALUES ( 5, 6, 1);
 INSERT INTO opcaopergunta ( opcao_id, pergunta_id, positiva)
 VALUES ( 4, 6, 0);
 INSERT INTO opcaopergunta ( opcao_id, pergunta_id, positiva)
-VALUES ( 5, 7, 1);
-INSERT INTO opcaopergunta ( opcao_id, pergunta_id, positiva)
-VALUES ( 4, 7, 0);
+
 
 
 

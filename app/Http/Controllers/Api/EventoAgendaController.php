@@ -39,7 +39,7 @@ class EventoAgendaController extends Controller
 
     public function store(Request $request)
     {
-        //não utilizado
+
         try {
 
             DB::beginTransaction();
@@ -61,12 +61,13 @@ class EventoAgendaController extends Controller
             if (config('app.debug')) {
                 return response()->json(ApiError::errorMassage($e->getMessage(), 1010));
             }
-            return response()->json(ApiError::errorMassage('Error ao inserir o evento', 1010));
+            return response()->json(ApiError::errorMassage(['data' => ['msg' => 'Error ao inserir o evento!']], 1010), 101);
         }
     }
 
 
-    public function atualizarEvento (Request $request) {
+    public function atualizarEvento(Request $request)
+    {
         $evento = $this->EventoAgenda->find($request->input('evento_id'));
         $evento->hora = $request->input('hora');
         $evento->data = $request->input('data');
@@ -75,11 +76,10 @@ class EventoAgendaController extends Controller
         $evento->save();
     }
 
-    public function excluirEvento (Request $request) {
+    public function excluirEvento(Request $request)
+    {
         $evento = $this->EventoAgenda->find($request->input('evento_id'));
-        
+
         $evento->delete();
     }
-
-
 }
