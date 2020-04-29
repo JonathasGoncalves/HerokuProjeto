@@ -1120,98 +1120,112 @@ INSERT INTO `qualidade-leite` (`id`, `tanque`, `matricula`, `faixa`, `zle_dtfim`
 (138188, 1306, 293, 'D', 201907, '2020-02-01', 2026, 20.2600, 81.0400, 3.30, 11.97, 258, 244),
 (140162, 1306, 293, 'C', 201908, '2020-03-01', 1831, 36.6200, 73.2400, 3.40, 12.02, 275, 482),
 (142318, 1306, 293, 'B', 201909, '2020-04-01', 1742, 52.2600, 69.6800, 3.70, 12.59, 227, 217),
-
-(98692, 335, 326, 'F', 201802, '2019-01-01', 4868, -48.6800, 194.7200, 3.80, 12.33, 2305, 956),
-(100885, 335, 326, 'F', 201803, '2019-02-01', 4529, -45.2900, 181.1600, 3.70, 12.31, 1426, 752),
-(103084, 335, 326, 'B', 201804, '2019-03-01', 4868, 146.0400, 194.7200, 4.20, 12.84, 2159, 71),
-(105013, 335, 326, 'C', 201805, '2019-04-01', 4818, 96.3600, 192.7200, 4.20, 13.08, 2368, 131),
-(107185, 335, 326, 'E', 201806, '2019-05-01', 4635, 0.0000, 185.4000, 3.80, 12.43, 1902, 223),
-(109598, 335, 326, 'E', 201807, '2019-06-01', 4711, 0.0000, 188.4400, 3.50, 12.07, 1026, 565),
-(111538, 335, 326, 'E', 201808, '2019-07-01', 4688, 0.0000, 187.5200, 3.70, 12.33, 1629, 454),
-(113959, 335, 326, 'E', 201809, '2019-08-01', 3722, 0.0000, 148.8800, 3.70, 12.28, 1519, 414);
+(986921, 335, 326, 'F', 201802, '2019-01-01', 4868, -48.6800, 194.7200, 3.80, 12.33, 2305, 956),
+(1008851, 335, 326, 'F', 201803, '2019-02-01', 4529, -45.2900, 181.1600, 3.70, 12.31, 1426, 752),
+(1030841, 335, 326, 'B', 201804, '2019-03-01', 4868, 146.0400, 194.7200, 4.20, 12.84, 2159, 71),
+(1050132, 335, 326, 'C', 201805, '2019-04-01', 4818, 96.3600, 192.7200, 4.20, 13.08, 2368, 131),
+(1071851, 335, 326, 'E', 201806, '2019-05-01', 4635, 0.0000, 185.4000, 3.80, 12.43, 1902, 223),
+(1095981, 335, 326, 'E', 201807, '2019-06-01', 4711, 0.0000, 188.4400, 3.50, 12.07, 1026, 565),
+(1115381, 335, 326, 'E', 201808, '2019-07-01', 4688, 0.0000, 187.5200, 3.70, 12.33, 1629, 454),
+(1139591, 335, 326, 'E', 201809, '2019-08-01', 3722, 0.0000, 148.8800, 3.70, 12.28, 1519, 414);
 (98692, 335, 326, 'F', 201802, '2019-09-01', 4868, -48.6800, 194.7200, 3.80, 12.33, 2305, 956),
 (100885, 335, 326, 'F', 201803, '2019-10-01', 4529, -45.2900, 181.1600, 3.70, 12.31, 1426, 752),
 (103084, 335, 326, 'B', 201804, '2019-11-01', 4868, 146.0400, 194.7200, 4.20, 12.84, 2159, 71),
-(105013, 335, 326, 'C', 201805, '2019-12-01', 4818, 96.3600, 192.7200, 4.20, 13.08, 2368, 131),
+(1050131, 335, 326, 'C', 201805, '2019-12-01', 4818, 96.3600, 192.7200, 4.20, 13.08, 2368, 131),
 (107185, 335, 326, 'E', 201806, '2020-01-01', 4635, 0.0000, 185.4000, 3.80, 12.43, 1902, 223),
 (109598, 335, 326, 'E', 201807, '2020-02-01', 4711, 0.0000, 188.4400, 3.50, 12.07, 1026, 565),
 (111538, 335, 326, 'E', 201808, '2020-03-01', 4688, 0.0000, 187.5200, 3.70, 12.33, 1629, 454),
-(113959, 335, 326, 'E', 201809, '2020-04-01', 3722, 0.0000, 148.8800, 3.70, 12.28, 1519, 414);
+(11395, 335, 326, 'E', 201809, '2020-04-01', 3722, 0.0000, 148.8800, 3.70, 12.28, 1519, 414);
 
-INSERT INTO formulario (Titulo)
-VALUES ("Diagnóstico da Propriedade");
-INSERT INTO formulario (Titulo)
-VALUES ("Nivelamento de Tecnologia");
-
-
-INSERT INTO tema (nome)
-VALUES ("Manejo de ordenha");
-INSERT INTO tema (nome)
-VALUES ("Animais");
-INSERT INTO tema (nome)
-VALUES ("Equipamentos");
-INSERT INTO tema (nome)
-VALUES ("Higiene");
+INSERT INTO formulario (id, Titulo)
+VALUES (1, "Diagnóstico da Propriedade");
+INSERT INTO formulario (id, Titulo)
+VALUES (2, "Nivelamento de Tecnologia");
 
 
+INSERT INTO tema (id, nome)
+VALUES (1, "Manejo de ordenha");
+INSERT INTO tema (id, nome)
+VALUES (2, "Animais");
+INSERT INTO tema (id, nome)
+VALUES (3, "Equipamentos");
+INSERT INTO tema (id, nome)
+VALUES (4, "Higiene");
 
 
-INSERT INTO pergunta (enunciado, formulario_id, tema_id) 1
-VALUES ("Condição tetos antes da ordenha:", 1, 4);
-INSERT INTO pergunta (enunciado, formulario_id, tema_id)
-VALUES ( "O teste da caneca é feito?", 1, 1);
-INSERT INTO pergunta (enunciado, formulario_id, tema_id)
-VALUES ( "Utiliza boi reprodutor", 2, 2);
-INSERT INTO pergunta (enunciado, formulario_id, tema_id)
-VALUES ("Realiza inseminação?", 2, 2);
-INSERT INTO pergunta (enunciado, formulario_id, tema_id)
-VALUES ("Realiza inseminação?", 1, 2);
-INSERT INTO pergunta (enunciado, formulario_id, tema_id) 6
-VALUES ( "Utiliza boi reprodutor", 1, 2);
 
-INSERT INTO opcao ( nome_opcao)
-VALUES ( "Limpos");
-INSERT INTO opcao ( nome_opcao)
-VALUES ( "Sujos");
-INSERT INTO opcao ( nome_opcao)
-VALUES ( "Muito sujos");
-INSERT INTO opcao ( nome_opcao)
-VALUES ( "Sim");
-INSERT INTO opcao ( nome_opcao)
-VALUES ( "Não");
 
-INSERT INTO opcaopergunta ( opcao_id, pergunta_id, positiva)
-VALUES ( 1, 1, 1);
-INSERT INTO opcaopergunta ( opcao_id, pergunta_id, positiva)
-VALUES ( 2, 1, 0);
-INSERT INTO opcaopergunta ( opcao_id, pergunta_id, positiva)
-VALUES ( 3, 1, 0);
+INSERT INTO pergunta (id, enunciado, formulario_id, tema_id) 
+VALUES (1,"Condição tetos antes da ordenha:", 1, 4);
+INSERT INTO pergunta (id, enunciado, formulario_id, tema_id)
+VALUES (2, "O teste da caneca é feito?", 1, 1);
+INSERT INTO pergunta (id, enunciado, formulario_id, tema_id)
+VALUES (3, "Utiliza boi reprodutor", 2, 2);
+INSERT INTO pergunta (id, enunciado, formulario_id, tema_id)
+VALUES (4, "Realiza inseminação?", 2, 2);
+INSERT INTO pergunta (id, enunciado, formulario_id, tema_id)
+VALUES (5, "Realiza inseminação?", 1, 2);
+INSERT INTO pergunta (id, enunciado, formulario_id, tema_id) 
+VALUES (6, "Utiliza boi reprodutor", 1, 2);
+INSERT INTO pergunta (id, enunciado, formulario_id, tema_id)
+VALUES (7, "Utiliza Ordenha mecânica?", 2, 3);
+INSERT INTO pergunta (id, enunciado, formulario_id, tema_id)
+VALUES (8, "Higienização da Ordenhadeira", 2, 1);
 
-INSERT INTO opcaopergunta ( opcao_id, pergunta_id, positiva)
-VALUES ( 4, 2, 1);
-INSERT INTO opcaopergunta ( opcao_id, pergunta_id, positiva)
-VALUES ( 5, 2, 0);
+INSERT INTO opcao (id,  nome_opcao)
+VALUES (1, "Limpos");
+INSERT INTO opcao (id,  nome_opcao)
+VALUES (2, "Sujos");
+INSERT INTO opcao (id,  nome_opcao)
+VALUES (3, "Muito sujos");
+INSERT INTO opcao (id,  nome_opcao)
+VALUES (4, "Sim");
+INSERT INTO opcao (id,  nome_opcao)
+VALUES (5, "Não");
 
-INSERT INTO opcaopergunta ( opcao_id, pergunta_id, positiva)
-VALUES ( 4, 3, 1);
-INSERT INTO opcaopergunta ( opcao_id, pergunta_id, positiva)
-VALUES ( 5, 3, 0);
+INSERT INTO opcaopergunta (id,  opcao_id, pergunta_id, positiva)
+VALUES (1, 1, 1, 1);
+INSERT INTO opcaopergunta (id,  opcao_id, pergunta_id, positiva)
+VALUES (2, 2, 1, 0);
+INSERT INTO opcaopergunta (id,  opcao_id, pergunta_id, positiva)
+VALUES (3, 3, 1, 0);
 
-INSERT INTO opcaopergunta ( opcao_id, pergunta_id, positiva)
-VALUES ( 4, 4, 0);
-INSERT INTO opcaopergunta ( opcao_id, pergunta_id, positiva)
-VALUES ( 5, 4, 1);
+INSERT INTO opcaopergunta (id,  opcao_id, pergunta_id, positiva)
+VALUES (4, 4, 2, 1);
+INSERT INTO opcaopergunta (id,  opcao_id, pergunta_id, positiva)
+VALUES (5, 5, 2, 0);
 
-INSERT INTO opcaopergunta ( opcao_id, pergunta_id, positiva)
-VALUES ( 5, 5, 0);
-INSERT INTO opcaopergunta ( opcao_id, pergunta_id, positiva)
-VALUES ( 4, 5, 1);
+INSERT INTO opcaopergunta (id,  opcao_id, pergunta_id, positiva)
+VALUES (6, 4, 3, 1);
+INSERT INTO opcaopergunta (id,  opcao_id, pergunta_id, positiva)
+VALUES (7, 5, 3, 0);
 
-INSERT INTO opcaopergunta ( opcao_id, pergunta_id, positiva)
-VALUES ( 5, 6, 1);
-INSERT INTO opcaopergunta ( opcao_id, pergunta_id, positiva)
-VALUES ( 4, 6, 0);
+INSERT INTO opcaopergunta (id,  opcao_id, pergunta_id, positiva)
+VALUES (8, 4, 4, 0);
+INSERT INTO opcaopergunta (id,  opcao_id, pergunta_id, positiva)
+VALUES (9, 5, 4, 1);
 
+INSERT INTO opcaopergunta (id,  opcao_id, pergunta_id, positiva)
+VALUES (10, 5, 5, 0);
+INSERT INTO opcaopergunta (id,  opcao_id, pergunta_id, positiva)
+VALUES (11, 4, 5, 1);
+
+INSERT INTO opcaopergunta (id,  opcao_id, pergunta_id, positiva)
+VALUES (12, 5, 6, 1);
+INSERT INTO opcaopergunta (id,  opcao_id, pergunta_id, positiva)
+VALUES (13, 4, 6, 0);
+
+INSERT INTO opcaopergunta (id,  opcao_id, pergunta_id, positiva)
+VALUES (14, 4, 7, 1);
+INSERT INTO opcaopergunta (id,  opcao_id, pergunta_id, positiva)
+VALUES (15, 5, 7, 0);
+
+INSERT INTO opcaopergunta (id,  opcao_id, pergunta_id, positiva)
+VALUES (16, 1, 8, 1);
+INSERT INTO opcaopergunta (id,  opcao_id, pergunta_id, positiva)
+VALUES (17, 2, 8, 0);
+INSERT INTO opcaopergunta (id,  opcao_id, pergunta_id, positiva)
+VALUES (18, 3, 8, 0);
 
 
 
