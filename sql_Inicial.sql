@@ -1143,8 +1143,6 @@ VALUES (1, "Diagnóstico da Propriedade");
 INSERT INTO formulario (id, Titulo)
 VALUES (2, "Nivelamento de Tecnologia");
 
-
-
 INSERT INTO tema (id, nome)
 VALUES (1, "Manejo de ordenha");
 INSERT INTO tema (id, nome)
