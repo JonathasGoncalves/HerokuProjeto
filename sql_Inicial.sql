@@ -1137,10 +1137,12 @@ INSERT INTO `qualidade-leite` (`id`, `tanque`, `matricula`, `faixa`, `zle_dtfim`
 (111538, 335, 326, 'E', 201808, '2020-03-01', 4688, 0.0000, 187.5200, 3.70, 12.33, 1629, 454),
 (11395, 335, 326, 'E', 201809, '2020-04-01', 3722, 0.0000, 148.8800, 3.70, 12.28, 1519, 414);
 
+
 INSERT INTO formulario (id, Titulo)
 VALUES (1, "Diagnóstico da Propriedade");
 INSERT INTO formulario (id, Titulo)
 VALUES (2, "Nivelamento de Tecnologia");
+
 
 
 INSERT INTO tema (id, nome)
@@ -1151,9 +1153,6 @@ INSERT INTO tema (id, nome)
 VALUES (3, "Equipamentos");
 INSERT INTO tema (id, nome)
 VALUES (4, "Higiene");
-
-
-
 
 INSERT INTO pergunta (id, enunciado, formulario_id, tema_id) 
 VALUES (1,"Condição tetos antes da ordenha:", 1, 4);
